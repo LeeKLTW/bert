@@ -6,6 +6,10 @@
 # $SQUAD_DIR
 squad_dir/
 
+# $BERT_BASE_DIR
+bert_base_dir/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -1,5 +1,11 @@
 # Initially taken from Github's Python gitignore file
 
+# pycharm
+.idea/
+
+# $SQUAD_DIR
+squad_dir/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

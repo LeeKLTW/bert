@@ -11,18 +11,53 @@ python run_squad.py \
   --bert_config_file=$BERT_BASE_DIR/bert_config.json \
   --init_checkpoint=$BERT_BASE_DIR/bert_model.ckpt \
   --do_train=True \
+  --do_lower_case=False \
   --train_file=$SQUAD_DIR/train-v2.0.json \
   --do_predict=True \
   --predict_file=$SQUAD_DIR/dev-v2.0.json \
   --train_batch_size=12 \
   --learning_rate=3e-5 \
   --num_train_epochs=2.0 \
-  --max_seq_length=64 \
+  --max_seq_length=128 \
   --doc_stride=128 \
   --output_dir=/tmp/squad_base/ \
   --version_2_with_negative=True
 
 ```
+
+Let's  find the prediction result
+```
+user2@xxx:/tmp/squad_base$ mv nbest_predictions.json ~/bert/squad_dir/nbest_predictions.json
+user2@xxx:/tmp/squad_base$ mv predictions.json ~/bert/squad_dir/predictions.json
+```
+
+```
+python $SQUAD_DIR/evaluate-v1.1.py $SQUAD_DIR/dev-v1.1.json ./squad/predictions.json
+```
+
+get:
+```
+{
+  "exact": 71.37202055082962,
+  "f1": 74.00009893315637,
+  "total": 11873,
+  "HasAns_exact": 64.97975708502024,
+  "HasAns_f1": 70.24345051170118,
+  "HasAns_total": 5928,
+  "NoAns_exact": 77.74600504625737,
+  "NoAns_f1": 77.74600504625737,
+  "NoAns_total": 5945
+}
+```
+
+```
+  "exact": 71.37202055082962,
+  "f1": 74.00009893315637,
+```
+
+!= {"f1": 90.87081895814865, "exact_match": 84.38978240302744}
+
+???
 
 
 

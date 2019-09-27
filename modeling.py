@@ -985,4 +985,3 @@ def assert_rank(tensor, expected_rank, name=None):
         "`%d` (shape = %s) is not equal to the expected rank `%s`" %
         (name, scope_name, actual_rank, str(tensor.shape), str(expected_rank)))
 
-

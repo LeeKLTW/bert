@@ -986,3 +986,4 @@ def assert_rank(tensor, expected_rank, name=None):
         (name, scope_name, actual_rank, str(tensor.shape), str(expected_rank)))
 
 
+
